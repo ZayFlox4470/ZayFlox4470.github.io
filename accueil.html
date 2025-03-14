@@ -74,35 +74,64 @@
             display: inline-block;
         }
 
-        /* Nouveau rectangle pour le QR code */
+        /* Nouveau conteneur pour QR code et texte */
         .qr-container {
             background-color: white;  /* Fond blanc */
             color: #FFD104;
             border-radius: 10px;
-            width: 80%; /* Largeur du rectangle */
+            width: calc(120px + 2 * 5px); /* Largeur du QR code + 5 pixels de chaque côté */
             margin-top: 50px; /* Espacement par rapport aux éléments précédents */
             display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 20px;
+            flex-direction: column;
+            align-items: center;  /* Alignement centré */
+            justify-content: flex-start; /* Alignement à gauche */
+            padding: 15px;
             position: relative;
-            height: 180px; /* Augmenté en hauteur */
+            height: 125px; /* Hauteur du QR code + padding */
+            margin-left: 20px; /* Décalage de 20px vers la droite */
+            margin-bottom: 40px; /* Ajout de l'espace entre le rectangle noir et le pied de page */
         }
         .qr-code {
             width: 120px; /* Taille du QR Code */
             height: 120px;
             object-fit: cover;
-            border-radius: 10px;
-            margin-left: 5cm; /* Décalage de 5cm de la gauche */
+            border-radius: 15px;
+            margin-bottom: 50px; /* Décalage de 50px vers le bas avant le rectangle noir */
         }
+
+        /* Petit rectangle noir en dessous du QR code */
         .text-box {
-            background-color: #d0d0d0; /* Gris clair mais plus foncé que le blanc */
-            border-radius: 10px;
-            padding: 15px;
-            margin-left: 20px; /* Espacement entre le QR code et le texte */
-            width: 60%; /* Largeur du texte */
-            height: 100%; /* S'ajuste à la hauteur du conteneur */
-            color: black; /* Texte en noir */
+            background-color: black;
+            border-radius: 25px;
+            padding: 9px;
+            width: 250px;
+            height: 200px; /* Réduit la hauteur pour créer un meilleur espace */
+            color: #FFD104;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 2px; /* Ajoute une marge de 30px pour abaisser le rectangle noir */
+        }
+
+        /* Bouton "LIVRET NUMERIQUE" au-dessus du QR code */
+        .livret-button {
+            padding: 15px 25px;
+            background-color: black;
+            color: #FFD104;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            border-radius: 25px;
+            margin-top: 20px;
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .livret-button:hover {
+            background-color: #333;
         }
     </style>
 </head>
@@ -134,13 +163,16 @@
         </div>
     </div>
 
+    <!-- Bouton "LIVRET NUMERIQUE" -->
+    <a href="https://qr.me-qr.com/mobile/pdf/c0d668cc-839d-4fd9-8970-70e54e8a9dc6" class="livret-button">LIVRET NUMERIQUE</a>
+
     <!-- Section QR code -->
     <div class="qr-container">
         <!-- QR Code image -->
-        <img src="votre-qr-code.png" alt="QR Code" class="qr-code">
-        <!-- Texte expliquant le QR code -->
+        <img src="qrcode-livret.png" alt="QR Code" class="qr-code">
+        <!-- Petit rectangle avec le texte -->
         <div class="text-box">
-            <p><strong>Scannez ce QR code</strong><br>Il vous redirigera vers une version numérique du livret <strong>"L'Histoire de l'Imprimerie, de 1450 à 2025"</strong></p>
+            Scannez ce QR code pour avoir <br> accès à la version numérique <br> du livret
         </div>
     </div>
 </body>
